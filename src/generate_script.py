@@ -13,7 +13,7 @@ def create_script(topics):
     genai.configure(api_key=api_key)
     
     #  Gemini 1.5 Flash (高速・低コストモデル) を使用
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')
     
     # ピックアップするニュースをランダムに1〜2つ選ぶ
     selected_topic = random.choice(topics)

@@ -22,7 +22,6 @@ def main():
         print("エラー: トレンドの取得に失敗しました。終了します。")
         sys.exit(1)
         
-    # 2. 台本の生成
     print("2. Gemini APIによる台本を生成中...")
     try:
         keyword, script = create_script(topics)
