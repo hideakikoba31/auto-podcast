@@ -60,6 +60,17 @@ def main():
     title = f"{datetime.now(jst).strftime('%m月%d日')}の話題: {keyword}の豆知識"
     description = f"本日のトレンド「{keyword}」に関する雑学をお届けします。\n\n---\nAIパーソナリティによる自動生成Podcastです。"
     
+    # ユーザーが確認しやすいようにテキストファイルとして保存しておく
+    info_path = f"assets/episodes/episode_{now_str}_info.txt"
+    try:
+        with open(info_path, "w", encoding="utf-8") as f:
+            f.write(f"【エピソードタイトル】\n{title}\n\n")
+            f.write(f"【概要（説明文）】\n{description}\n\n")
+            f.write(f"【読み上げ台本】\n{script}\n")
+        print(f"-> エピソード情報を保存しました: {info_path}")
+    except Exception as e:
+        print(f"警告: エピソード情報の保存に失敗しました: {e}")
+
     # GitHubのパスに対応するためファイル名のみ渡す（update_rss.pyのロジックに依存）
     relative_audio_path = f"assets/episodes/episode_{now_str}.mp3"
     
