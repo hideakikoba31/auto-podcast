@@ -48,7 +48,7 @@ def main():
     jst = pytz.timezone('Asia/Tokyo')
     now_str = datetime.now(jst).strftime('%Y%m%d')
     final_audio_path = f"assets/episodes/episode_{now_str}.mp3"
-    bgm_path = "assets/bgm.mp3"
+    bgm_path = "assets/ensolarado.mp3"
     
     try:
         mix_audio_with_bgm(raw_audio_path, bgm_path, final_audio_path)
