@@ -41,9 +41,7 @@ jobs:
       run: python main.py
 
     - name: Commit and push generated files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add assets/episodes/ feed.xml episodes.json
-        # 変更がある場合のみコミット
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Add daily podcast episode" && git push)
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Add daily podcast episode"
+        file_pattern: "assets/episodes/* feed.xml episodes.json"
