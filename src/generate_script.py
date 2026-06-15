@@ -10,7 +10,6 @@ def create_script(topics):
     if not api_key:
         raise ValueError("GEMINI_API_KEY is not set.")
     
-    import os
     temp_gcp_creds = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
     if temp_gcp_creds:
         del os.environ["GOOGLE_APPLICATION_CREDENTIALS"]
