@@ -4,9 +4,9 @@ import xml.etree.ElementTree as ET
 
 def get_trending_topics():
     """
-    Google Trendsの日本のRSSフィードから、本日のトレンドキーワードと関連ニュースを取得します。
+    Yahooニュースの主要トピックスRSSから、本日のニュースを取得します。
     """
-    url = 'https://trends.google.co.jp/trends/trendingsearches/daily/rss?geo=JP'
+    url = 'https://news.yahoo.co.jp/rss/topics/top-picks.xml'
     try:
         response = requests.get(url)
         response.raise_for_status()
@@ -15,22 +15,13 @@ def get_trending_topics():
         root = ET.fromstring(response.content)
         
         trends = []
-        # namespace (ht) が含まれているため、find時に注意
-        ns = {'ht': 'https://trends.google.co.jp/trends/trendingsearches/daily'}
-        
         for item in root.findall('.//item'):
             title = item.find('title').text
-            # 関連するニュースのタイトルも取得（より文脈をAIに持たせるため）
-            news_title = ""
-            news_item = item.find('ht:news_item', ns)
-            if news_item is not None:
-                news_item_title = news_item.find('ht:news_item_title', ns)
-                if news_item_title is not None:
-                    news_title = news_item_title.text
-                    
+            description = item.find('description').text if item.find('description') is not None else ""
+            
             trends.append({
                 'keyword': title,
-                'news_context': news_title
+                'news_context': description
             })
             
         return trends[:5]  # トップ5件を返す

@@ -20,7 +20,7 @@ def main():
     topics = get_trending_topics()
     if not topics:
         print("エラー: トレンドの取得に失敗しました。終了します。")
-        return
+        sys.exit(1)
         
     # 2. 台本の生成
     print("2. Gemini APIによる台本を生成中...")
@@ -32,7 +32,7 @@ def main():
         print("------------------")
     except Exception as e:
         print(f"エラー: 台本の生成に失敗しました: {e}")
-        return
+        sys.exit(1)
 
     # 3. 音声の生成
     print("3. Google Cloud TTSによる音声を生成中...")
@@ -41,7 +41,7 @@ def main():
         synthesize_speech(script, raw_audio_path)
     except Exception as e:
         print(f"エラー: 音声の生成に失敗しました: {e}")
-        return
+        sys.exit(1)
 
     # 4. BGMとの合成
     print("4. 音声とBGMを合成中...")
@@ -54,7 +54,7 @@ def main():
         mix_audio_with_bgm(raw_audio_path, bgm_path, final_audio_path)
     except Exception as e:
         print(f"エラー: 音声のミックスに失敗しました: {e}")
-        return
+        sys.exit(1)
 
     # 5. RSSの更新
     print("5. RSSフィードを更新中...")
@@ -68,7 +68,7 @@ def main():
         add_episode_to_rss(title, description, relative_audio_path, "feed.xml")
     except Exception as e:
         print(f"エラー: RSSの更新に失敗しました: {e}")
-        return
+        sys.exit(1)
         
     print("=== すべての処理が完了しました！ ===")
 

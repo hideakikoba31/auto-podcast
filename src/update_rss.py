@@ -5,7 +5,7 @@ from datetime import datetime
 
 # GitHub PagesのURLに置き換えてください
 # 例: https://username.github.io/repository-name/
-BASE_URL = "https://your-github-username.github.io/your-repo-name/"
+BASE_URL = "https://hideakikoba31.github.io/auto-podcast/"
 
 def add_episode_to_rss(title, description, mp3_filename, feed_file="feed.xml"):
     """
