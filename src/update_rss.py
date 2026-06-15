@@ -59,8 +59,11 @@ def add_episode_to_rss(title, description, mp3_filename, feed_file="feed.xml"):
     # RSSの生成
     fg.title('おはようトリビア・カフェ')
     fg.link(href=BASE_URL, rel='alternate')
-    fg.description('朝のコーヒーのお供に。ほっと一息つける世間の話題と豆知識をお届けするポッドキャストです。')
+    fg.description('朝のコーヒーのお供に。ほっと一息つける世間の話題と豆知識をお届けするAIポッドキャストです。')
     fg.language('ja')
+    fg.podcast.itunes_author('AI パーソナリティ')
+    fg.podcast.itunes_summary('「おはようトリビア・カフェ」へようこそ！毎朝のコーヒータイムにぴったりな、世間の最新トレンドニュースと、思わず誰かに話したくなるような面白い豆知識（トリビア）をセットでお届けする1分間のショートPodcastです。最新のAI技術を活用して自動生成・配信しています。今日も良い一日を！')
+    fg.podcast.itunes_explicit('no')
     fg.podcast.itunes_category('Society & Culture')
     # fg.podcast.itunes_image(f"{BASE_URL}assets/cover.jpg") # カバー画像があれば設定
     
