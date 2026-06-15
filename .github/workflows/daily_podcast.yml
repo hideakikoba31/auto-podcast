@@ -35,6 +35,11 @@ jobs:
       with:
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
+    - name: Run test_models
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: python test_models.py
+
     - name: Run main script
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
