@@ -72,7 +72,9 @@ def add_episode_to_rss(title, description, mp3_filename, feed_file="feed.xml"):
     fg.podcast.itunes_category('Society & Culture')
     fg.podcast.itunes_image(f"{BASE_URL}assets/cover.png")
     
-    for ep in episodes:
+    # feedgenは最後に追加したエントリをXMLの先頭に出力する仕様のため、
+    # リスト（最新順）を逆順にして古いものから順に追加します
+    for ep in reversed(episodes):
         fe = fg.add_entry()
         fe.id(ep["guid"])
         fe.title(ep["title"])
