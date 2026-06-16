@@ -45,7 +45,7 @@ def main():
     # 4. BGMとの合成
     print("4. 音声とBGMを合成中...")
     jst = pytz.timezone('Asia/Tokyo')
-    now_str = datetime.now(jst).strftime('%Y%m%d')
+    now_str = datetime.now(jst).strftime('%Y%m%d_%H%M%S')
     final_audio_path = f"assets/episodes/episode_{now_str}.mp3"
     bgm_path = "assets/ensolarado.mp3"
     

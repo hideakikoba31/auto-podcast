@@ -47,7 +47,7 @@ def add_episode_to_rss(title, description, mp3_filename, feed_file="feed.xml"):
         "url": mp3_url,
         "file_size": file_size,
         "pub_date": now.strftime("%a, %d %b %Y %H:%M:%S %z"),
-        "guid": f"{BASE_URL}episode/{now.strftime('%Y%md%H%M%S')}"
+        "guid": f"{BASE_URL}episode/{now.strftime('%Y%m%d%H%M%S')}"
     }
     
     episodes.insert(0, new_ep) # 先頭に追加
