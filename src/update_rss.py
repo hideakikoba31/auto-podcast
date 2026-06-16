@@ -61,6 +61,11 @@ def add_episode_to_rss(title, description, mp3_filename, feed_file="feed.xml"):
     fg.link(href=BASE_URL, rel='alternate')
     fg.description('朝のコーヒーのお供に。ほっと一息つける世間の話題と豆知識をお届けするAIポッドキャストです。')
     fg.language('ja')
+    
+    # 認証用の所有者情報を追加
+    fg.author({'name': 'Hideaki Kobayashi', 'email': 'hideakikoba31@gmail.com'})
+    fg.podcast.itunes_owner(name='Hideaki Kobayashi', email='hideakikoba31@gmail.com')
+    
     fg.podcast.itunes_author('AI パーソナリティ')
     fg.podcast.itunes_summary('「おはようトリビア・カフェ」へようこそ！毎朝のコーヒータイムにぴったりな、世間の最新トレンドニュースと、思わず誰かに話したくなるような面白い豆知識（トリビア）をセットでお届けする1分間のショートPodcastです。最新のAI技術を活用して自動生成・配信しています。今日も良い一日を！')
     fg.podcast.itunes_explicit('no')
