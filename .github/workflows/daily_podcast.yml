@@ -1,9 +1,9 @@
 name: Daily Podcast Generator
 
 on:
-  schedule:
-    # 毎日日本時間の朝6時に実行 (UTCで前日21:00)
-    - cron: '0 21 * * *'
+  # 自動配信を停止
+  # schedule:
+  #   - cron: '0 21 * * *'
   # 手動実行用
   workflow_dispatch:
 
